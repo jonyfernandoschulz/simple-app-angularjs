@@ -1,0 +1,28 @@
+<input type="search" ng-model="search" placeholder="Search by…">
+
+<div ng-controller="ListaComprasController">
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items | filter:search">
+                <td><strong>{{ item.produto }}</strong></td>
+                <td>{{ item.quantidade }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<form name="products">
+    <input type="text" ng-model="item.product">
+    <input type="number" ng-model="item.amount">
+    <button ng-click="addItem()">add item</button>
+</form>
+
+<button ng-click="deleteItem($index)">
+    <i></i> remove
+</button>
